@@ -87,7 +87,9 @@ names(Data)
 
 <h2>Step 5:Creates a second, independent tidy data set with the average of each variable for each activity and each subject</h2>
 
-  #This code will allow you to create an independent tidy data set, this will be created with the average of each variable for each activity and each subject based on the data set in step 4.
+#This code will allow you to create an independent tidy data set, this will be created with the average of each variable for each activity #and each subject based on the data set in step 4.
+
+library(plyr)
 Data2<-aggregate(. ~subject + activity, Data, mean)
 Data2<-Data2[order(Data2$subject,Data2$activity),]
 write.table(Data2, file = "tidydata.txt",row.name=FALSE)
